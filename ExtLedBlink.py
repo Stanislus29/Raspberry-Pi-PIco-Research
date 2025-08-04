@@ -1,11 +1,11 @@
-from machine import Pin 
+from ledclass import LED
 import time
 
-BoardLed = Pin("LED", Pin.OUT)
-BoardLed.value(1)
+# External LED connected to GPIO 21
+extLed = LED(21)
 
-led = Pin (21, Pin.OUT)
+# Blink external LED endlessly
+extLed.blink(delay=0.2)  # Faster blink
 
 while True:
-    led.toggle()
-    time.sleep(0.5)
+    extLed.update()
